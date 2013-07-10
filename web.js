@@ -1,10 +1,13 @@
 var express = require('express');
 var fs = require('fs');
+
+
+
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
 
-var bufferFile = new Buffer(fs.readFile('index.html'));
+var bufferFile = fs.readFileSync('index.html');
     response.send(bufferFile.toString());
 });
 
